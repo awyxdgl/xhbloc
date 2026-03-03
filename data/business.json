@@ -1,0 +1,22 @@
+[
+    {
+        "title": "科技研发",
+        "description": "拥有专业的研发团队，持续投入技术创新，已获得多项专利和软件著作权。",
+        "icon": "uploads\/business_1.png"
+    },
+    {
+        "title": "商业贸易",
+        "description": "建立完善的供应链体系，与国内外知名品牌建立长期合作关系，确保产品品质。",
+        "icon": "uploads\/business_2.png"
+    },
+    {
+        "title": "金融服务",
+        "description": "提供专业的投融资咨询、资产管理等服务，帮助客户实现财富稳健增长。",
+        "icon": "uploads\/business_3.png"
+    },
+    {
+        "title": "企业咨询",
+        "description": "汇聚行业专家，为企业提供战略规划、管理优化、市场拓展等专业咨询服务。",
+        "icon": "uploads\/business_4.png"
+    }
+]

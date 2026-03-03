@@ -1,0 +1,23 @@
+[
+    {
+        "name": "华东分公司",
+        "description": "负责华东地区业务拓展与客户服务，覆盖上海、江苏、浙江等省市。",
+        "address": "上海市浦东新区XXX路XXX号",
+        "phone": "021-XXXX-XXXX",
+        "image": "uploads/branch_1.jpg"
+    },
+    {
+        "name": "华南分公司",
+        "description": "深耕华南市场，为珠三角地区客户提供专业的本地化服务支持。",
+        "address": "广州市天河区XXX路XXX号",
+        "phone": "020-XXXX-XXXX",
+        "image": "uploads/branch_2.jpg"
+    },
+    {
+        "name": "西南分公司",
+        "description": "立足成都，辐射西南各省，致力于区域市场的深度开发与运营。",
+        "address": "成都市高新区XXX路XXX号",
+        "phone": "028-XXXX-XXXX",
+        "image": "uploads/branch_3.jpg"
+    }
+]

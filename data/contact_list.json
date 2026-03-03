@@ -1,0 +1,30 @@
+[
+    {
+        "type": "qq",
+        "name": "客服QQ",
+        "value": "123456789",
+        "remark": "工作时间 9:00-18:00",
+        "qrcode": "uploads/qq_qrcode.svg"
+    },
+    {
+        "type": "wechat",
+        "name": "官方微信",
+        "value": "company_wechat",
+        "remark": "扫码添加客服微信",
+        "qrcode": "uploads/wechat_qrcode.svg"
+    },
+    {
+        "type": "phone",
+        "name": "服务热线",
+        "value": "400-XXX-XXXX",
+        "remark": "7x24小时服务",
+        "qrcode": ""
+    },
+    {
+        "type": "email",
+        "name": "商务邮箱",
+        "value": "contact@company.com",
+        "remark": "",
+        "qrcode": ""
+    }
+]

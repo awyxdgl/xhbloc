@@ -1,0 +1,43 @@
+[
+    {
+        "name": "厦门星恒科学研究院有限公司",
+        "link": "https:\/\/xhbloc.com",
+        "description": "厦门星恒科学研究院是星恒集团开展科学技术服务的主要服务平台。",
+        "card_image": "assets\/xhkxyjy.png",
+        "modal_logo": "assets\/xhkxyjy.svg",
+        "logo_color": "#667eea",
+        "details": [
+            {
+                "label": "主要业务",
+                "value": "科技技术、创业服务、进出口贸易等。"
+            }
+        ]
+    },
+    {
+        "name": "武威星恒餐饮有限公司",
+        "link": "",
+        "description": "餐饮行业公司",
+        "card_image": "",
+        "modal_logo": "",
+        "logo_color": "#667eea",
+        "details": []
+    },
+    {
+        "name": "海口星恒电子商务有限公司",
+        "link": "",
+        "description": "从事进出口贸易、国内批发零售业务，产品涵盖电子设备、日用百货等多个品类。",
+        "card_image": "",
+        "modal_logo": "",
+        "logo_color": "#667eea",
+        "details": []
+    },
+    {
+        "name": "星恒（上海）财税咨询有限公司",
+        "link": "",
+        "description": "专注于版权登记、商标注册、工商服务的公司",
+        "card_image": "",
+        "modal_logo": "",
+        "logo_color": "#667eea",
+        "details": []
+    }
+]

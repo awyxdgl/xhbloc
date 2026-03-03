@@ -1,0 +1,22 @@
+# 启用Rewrite引擎（重定向的基础）
+RewriteEngine On
+RewriteBase /
+
+# 1. 强制HTTPS + 非www重定向到www（兼顾SEO的301永久重定向）
+# 先匹配非HTTPS的请求，重定向到HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+
+# 再匹配非www的HTTPS请求，重定向到www版本
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{HTTP_HOST} !^localhost$ [NC]  # 排除本地测试环境
+RewriteCond %{HTTP_HOST} !^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ [NC]  # 排除IP访问
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [L,R=301]
+
+# 2. 禁用目录浏览（防止暴露网站文件结构）
+Options -Indexes
+
+# 3. 禁止外部访问.htaccess文件（核心安全防护）
+<Files .htaccess>
+    Require all denied
+</Files>

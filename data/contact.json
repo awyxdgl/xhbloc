@@ -1,0 +1,9 @@
+{
+    "qq_number": "123456789",
+    "qq_qrcode": "uploads/qq_qrcode.svg",
+    "wechat_id": "company_wechat",
+    "wechat_qrcode": "uploads/wechat_qrcode.svg",
+    "phone": "400-XXX-XXXX",
+    "email": "contact@company.com",
+    "address": "北京市朝阳区XXX路XXX号XX大厦"
+}
