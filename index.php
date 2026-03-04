@@ -336,7 +336,8 @@ $seo_description = $config['seo_description'] ?? '欢迎访问我们的公司官
                                              data-type="<?php echo htmlspecialchars($item['type'] ?? 'default'); ?>"
                                              data-name="<?php echo htmlspecialchars($item['name'] ?? ''); ?>"
                                              data-nickname="<?php echo htmlspecialchars($item['nickname'] ?? ''); ?>"
-                                             data-uid="<?php echo htmlspecialchars($item['uid'] ?? ''); ?>"
+                                             data-id_name="<?php echo htmlspecialchars($item['id_name'] ?? ''); ?>"
+                                             data-id_value="<?php echo htmlspecialchars($item['id_value'] ?? ''); ?>"
                                              data-link="<?php echo htmlspecialchars($item['link'] ?? ''); ?>"
                                              data-svg-icon="<?php echo htmlspecialchars($item['svg_icon'] ?? ''); ?>"
                                              title="<?php echo htmlspecialchars($item['name'] ?? ''); ?>">
@@ -466,9 +467,9 @@ $seo_description = $config['seo_description'] ?? '欢迎访问我们的公司官
                     <span class="media-detail-label">账号昵称</span>
                     <span class="media-detail-value" id="media-modal-nickname"></span>
                 </div>
-                <div class="media-detail-row" id="media-modal-uid-row" style="display: none;">
-                    <span class="media-detail-label">账号UID</span>
-                    <span class="media-detail-value" id="media-modal-uid"></span>
+                <div class="media-detail-row" id="media-modal-id-row" style="display: none;">
+                    <span class="media-detail-label" id="media-modal-id-label"></span>
+                    <span class="media-detail-value" id="media-modal-id-value"></span>
                 </div>
             </div>
             <div class="media-detail-actions">

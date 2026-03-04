@@ -2184,43 +2184,88 @@ $filing = loadJsonData('filing.json');
                     '<h4>平台 #' + (index + 1) + '</h4>' +
                     '<button type="button" class="btn btn-danger btn-xs" onclick="deleteItem(this, \'media\')">删除</button>' +
                 '</div>' +
-                '<div class="form-row">' +
-                    '<div class="form-group">' +
-                        '<label>平台类型</label>' +
-                        '<select name="type" class="contact-type-select">' +
-                            '<option value="douyin">抖音</option>' +
-                            '<option value="bilibili">B站</option>' +
-                            '<option value="weibo">微博</option>' +
-                            '<option value="xiaohongshu">小红书</option>' +
-                            '<option value="custom">自定义</option>' +
-                            '<option value="default">其他</option>' +
-                        '</select>' +
+                '<div class="form-group">' +
+                    '<label>平台类型</label>' +
+                    '<div class="icon-picker-grid" style="grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 10px;">' +
+                        '<div class="icon-picker-item" data-type="douyin" onclick="selectMediaType(this, \'media_type_' + index + '\')">' +
+                            '<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>' +
+                            '<span>抖音</span>' +
+                        '</div>' +
+                        '<div class="icon-picker-item" data-type="bilibili" onclick="selectMediaType(this, \'media_type_' + index + '\')">' +
+                            '<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 01-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 01.16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>' +
+                            '<span>B站</span>' +
+                        '</div>' +
+                        '<div class="icon-picker-item" data-type="weibo" onclick="selectMediaType(this, \'media_type_' + index + '\')">' +
+                            '<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.739 5.443zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.194.573zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.579-.18-.405-.649.381-1.017.422-1.896-.001-2.52-.789-1.165-2.943-1.102-5.387-.03 0 0-.772.334-.575-.272.383-1.217.324-2.236-.271-2.823-1.349-1.336-4.938-.04-8.018 2.896C1.102 10.878 0 13.022 0 14.898c0 3.586 4.604 5.767 9.109 5.767 5.905 0 9.835-3.424 9.835-6.149 0-1.643-1.388-2.577-2.855-3.067zm2.003-5.376c-.632-.756-1.565-1.143-2.479-1.143-.311 0-.623.046-.924.14-.317.104-.498.429-.396.746.103.317.427.498.745.396.191-.063.391-.094.591-.094.564 0 1.146.239 1.543.713.396.474.535 1.083.391 1.635-.089.322.099.656.421.745.322.089.656-.099.745-.421.233-.886.013-1.86-.737-2.817zm1.931-2.31c-1.265-1.514-3.131-2.29-4.959-2.29-.623 0-1.248.089-1.856.271-.317.095-.5.427-.405.744.095.317.427.5.744.405.493-.148 1.006-.221 1.517-.221 1.511 0 3.047.641 4.086 1.886 1.039 1.245 1.401 2.861 1.056 4.339-.076.324.125.649.449.725.324.076.649-.125.725-.449.442-1.895-.024-3.971-1.357-5.41z"/></svg>' +
+                            '<span>微博</span>' +
+                        '</div>' +
+                        '<div class="icon-picker-item" data-type="xiaohongshu" onclick="selectMediaType(this, \'media_type_' + index + '\')">' +
+                            '<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>' +
+                            '<span>小红书</span>' +
+                        '</div>' +
+                        '<div class="icon-picker-item" data-type="custom" onclick="selectMediaType(this, \'media_type_' + index + '\')">' +
+                            '<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2v-4H8v-2h4V7h2v4h4v2h-4v4z"/></svg>' +
+                            '<span>自定义</span>' +
+                        '</div>' +
+                        '<div class="icon-picker-item" data-type="default" onclick="selectMediaType(this, \'media_type_' + index + '\')">' +
+                            '<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>' +
+                            '<span>其他</span>' +
+                        '</div>' +
                     '</div>' +
+                    '<input type="hidden" name="type" id="media_type_' + index + '" value="douyin">' +
+                '</div>' +
+                '<div class="form-row">' +
                     '<div class="form-group">' +
                         '<label>平台名称</label>' +
                         '<input type="text" name="name" value="" placeholder="如：官方抖音号">' +
                     '</div>' +
-                '</div>' +
-                '<div class="form-row">' +
                     '<div class="form-group">' +
                         '<label>账号昵称（可选）</label>' +
                         '<input type="text" name="nickname" value="" placeholder="如：企业官方号">' +
                     '</div>' +
+                '</div>' +
+                '<div class="form-row">' +
                     '<div class="form-group">' +
-                        '<label>账号UID（可选）</label>' +
-                        '<input type="text" name="uid" value="" placeholder="如：12345678">' +
+                        '<label>标识名称</label>' +
+                        '<input type="text" name="id_name" value="" placeholder="如：抖音号/视频号 ID/UID">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                        '<label>账号数值</label>' +
+                        '<input type="text" name="id_value" value="" placeholder="具体的账号号码">' +
                     '</div>' +
                 '</div>' +
                 '<div class="form-group">' +
                     '<label>跳转链接</label>' +
                     '<input type="text" name="link" value="" placeholder="https://">' +
                 '</div>' +
-                '<div class="form-group">' +
-                    '<label>自定义SVG图标代码（可选）</label>' +
+                '<div class="form-group svg-icon-field" style="display: none;">' +
+                    '<label>自定义SVG图标代码</label>' +
                     '<textarea name="svg_icon" rows="3" placeholder="<svg viewBox=\'0 0 24 24\' ...>...</svg>"></textarea>' +
                 '</div>' +
             '</div>';
             list.insertAdjacentHTML('beforeend', html);
+        }
+        
+        function selectMediaType(item, inputId) {
+            // 移除所有选中状态
+            var siblings = item.parentElement.querySelectorAll('.icon-picker-item');
+            siblings.forEach(function(sibling) {
+                sibling.style.background = 'rgba(255, 255, 255, 0.05)';
+                sibling.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            });
+            // 设置当前选中状态
+            item.style.background = 'rgba(102, 126, 234, 0.2)';
+            item.style.borderColor = 'rgba(102, 126, 234, 0.4)';
+            // 设置隐藏输入框的值
+            document.getElementById(inputId).value = item.getAttribute('data-type');
+            // 显示/隐藏自定义SVG输入框
+            var type = item.getAttribute('data-type');
+            var svgField = item.closest('.card-item').querySelector('.svg-icon-field');
+            if (type === 'custom') {
+                svgField.style.display = 'block';
+            } else {
+                svgField.style.display = 'none';
+            }
         }
         
         function addLinkItem() {
@@ -2414,10 +2459,11 @@ $filing = loadJsonData('filing.json');
             
             items.forEach(function(item) {
                 var obj = {
-                    type: item.querySelector('select[name="type"]').value,
+                    type: item.querySelector('input[name="type"]').value,
                     name: item.querySelector('input[name="name"]').value,
                     nickname: item.querySelector('input[name="nickname"]') ? item.querySelector('input[name="nickname"]').value : '',
-                    uid: item.querySelector('input[name="uid"]') ? item.querySelector('input[name="uid"]').value : '',
+                    id_name: item.querySelector('input[name="id_name"]') ? item.querySelector('input[name="id_name"]').value : '',
+                    id_value: item.querySelector('input[name="id_value"]') ? item.querySelector('input[name="id_value"]').value : '',
                     link: item.querySelector('input[name="link"]').value,
                     svg_icon: item.querySelector('textarea[name="svg_icon"]') ? item.querySelector('textarea[name="svg_icon"]').value : ''
                 };

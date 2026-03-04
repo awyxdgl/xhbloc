@@ -41,6 +41,9 @@
 
 /* ==================== 全局 UI 规范 (Design System) ==================== */
 :root {
+    /* 全局缩放因子：控制全站 UI 大小为 80% */
+    --global-scale: 0.8;
+    
     --bg-gradient-primary: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
     --bg-gradient-secondary: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f0c29 100%);
     
@@ -65,32 +68,32 @@
     --glass-blur: blur(20px);
     --glass-blur-heavy: blur(30px);
     
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-xl: 24px;
+    --radius-sm: calc(8px * var(--global-scale));
+    --radius-md: calc(12px * var(--global-scale));
+    --radius-lg: calc(16px * var(--global-scale));
+    --radius-xl: calc(24px * var(--global-scale));
     --radius-full: 50px;
     
-    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.4);
-    --shadow-glow: 0 0 20px var(--glow-primary);
+    --shadow-sm: 0 calc(4px * var(--global-scale)) calc(15px * var(--global-scale)) rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 calc(10px * var(--global-scale)) calc(30px * var(--global-scale)) rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 calc(20px * var(--global-scale)) calc(50px * var(--global-scale)) rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 calc(20px * var(--global-scale)) var(--glow-primary);
     
     --transition-fast: 0.2s;
     --transition-normal: 0.3s;
     --transition-slow: 0.5s;
     --transition-bounce: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     
-    --spacing-xs: 8px;
-    --spacing-sm: 16px;
-    --spacing-md: 24px;
-    --spacing-lg: 40px;
-    --spacing-xl: 60px;
+    --spacing-xs: calc(8px * var(--global-scale));
+    --spacing-sm: calc(16px * var(--global-scale));
+    --spacing-md: calc(24px * var(--global-scale));
+    --spacing-lg: calc(40px * var(--global-scale));
+    --spacing-xl: calc(60px * var(--global-scale));
     
-    --container-max: 1300px;
-    --container-padding: 20px;
+    --container-max: calc(1300px * var(--global-scale));
+    --container-padding: calc(20px * var(--global-scale));
     
-    --navbar-height: 70px;
+    --navbar-height: calc(70px * var(--global-scale));
     
     --icon-qq: linear-gradient(135deg, #12b7f5 0%, #00d4ff 100%);
     --icon-wechat: linear-gradient(135deg, #07c160 0%, #1aad19 100%);
@@ -140,6 +143,8 @@ body {
     background: var(--bg-gradient-primary);
     overflow-x: hidden;
     min-height: 100vh;
+    /* 全局 UI 缩放至 80%：通过缩小基础字体大小实现 */
+    font-size: calc(1rem * var(--global-scale));
 }
 
 /* ==================== 全屏滚动容器 ==================== */
@@ -352,7 +357,7 @@ body {
 }
 
 .section-title {
-    font-size: 2.8rem;
+    font-size: calc(2.8rem * var(--global-scale));
     font-weight: 700;
     text-align: center;
     margin-bottom: var(--spacing-md);
@@ -475,6 +480,11 @@ body {
 /* ==================== 关于我们板块 ==================== */
 .about-section {
     background: var(--bg-gradient-secondary);
+    /* 硬件加速：为包含高斯模糊的板块启用 GPU 加速，消除滑动卡顿 */
+    will-change: transform;
+    transform: translateZ(0);
+    /* 渲染优化：减少滚动时的重绘 */
+    contain: layout style paint;
 }
 
 .about-wrapper {
@@ -500,6 +510,11 @@ body {
     max-width: 100%;
     margin: 0 auto;
     aspect-ratio: var(--about-image-ratio, 16/9);
+    /* 硬件加速：为包含 backdrop-filter 的玻璃卡片启用 GPU 加速 */
+    will-change: transform;
+    transform: translateZ(0);
+    /* 渲染优化：减少滚动时的重绘 */
+    contain: layout style paint;
 }
 
 .about-image::before {
@@ -526,6 +541,9 @@ body {
 
 .about-content {
     padding: clamp(12px, 1.5vw, 24px);
+    /* 硬件加速：为玻璃卡片内容区启用 GPU 加速 */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .about-content h3 {

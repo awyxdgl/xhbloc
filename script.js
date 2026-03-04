@@ -205,7 +205,8 @@ function initMediaModal() {
             var type = this.dataset.type || 'default';
             var name = this.dataset.name || '平台';
             var nickname = this.dataset.nickname || '';
-            var uid = this.dataset.uid || '';
+            var idName = this.dataset.id_name || '';
+            var idValue = this.dataset.id_value || '';
             var link = this.dataset.link || '';
             
             var iconContainer = document.getElementById('media-modal-icon');
@@ -225,12 +226,13 @@ function initMediaModal() {
                 nicknameRow.style.display = 'none';
             }
             
-            var uidRow = document.getElementById('media-modal-uid-row');
-            if (uid) {
-                document.getElementById('media-modal-uid').textContent = uid;
-                uidRow.style.display = 'flex';
+            var idRow = document.getElementById('media-modal-id-row');
+            if (idName && idValue) {
+                document.getElementById('media-modal-id-label').textContent = idName;
+                document.getElementById('media-modal-id-value').textContent = idValue;
+                idRow.style.display = 'flex';
             } else {
-                uidRow.style.display = 'none';
+                idRow.style.display = 'none';
             }
             
             var linkBtn = document.getElementById('media-modal-link');
